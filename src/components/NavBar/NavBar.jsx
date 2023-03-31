@@ -6,8 +6,8 @@ function NavBar() {
             <h3>PeanutGo!</h3>
             <div className="divButtons">
                 <button>Frutos Secos</button>
-                <button>Lácteos</button>
-                <button>Embasados</button>
+                <button>Harinas</button>
+                <button>Chocolates</button>
             </div>
             <CartWidget />
         </nav>

@@ -1,0 +1,52 @@
+.divCounter {
+    width: 15rem;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.counterOfControls button {
+    background-color: #cd813e;
+    border: 2px solid #cd813e;
+    font-size: 1.7rem;
+    border-radius: 20%;
+    height: 3rem;
+    width: 3rem;
+    color: white;
+    cursor: pointer;
+}
+
+.counterOfControls button:active {
+    background-color: #cd813ed3;
+    border: 2px solid #d6975f;
+
+}
+
+.counterOfControls span {
+    font-size: 1.7rem;
+    padding: 0 1rem;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.counterOfControls {
+    padding: 0.5rem 0;
+}
+
+/* button Agregar al carrito */
+.addToCart .btnAddToCart {
+    font-size: 1rem;
+    background-color: #000000;
+    border: 1.2px solid black;
+    padding: 0.7rem;
+    border-radius: 5px;
+    cursor: pointer;
+    color: rgba(240, 228, 210, 1);
+    text-transform: uppercase;
+}
+
+.addToCart .btnAddToCart:active {
+    background-color: #000000d3;
+    border: 1.2px solid #000000d3;
+    color: white;
+}
