@@ -1,14 +1,14 @@
 import { useState } from "react"
 import './ItemCount.css'
-function ItemCount({stock, initial, onAdd}){
+function ItemCount( { stock, initial, onAdd } ) {
     const [count, setCount] = useState(initial)
-    function btnAdd(){
+    function btnAdd() {
         if (count < stock){
             setCount( count + 1 )
         }
     }
-    function btnLess(){
-        if (count > 1){
+    function btnLess() {
+        if (count > 1) {
             setCount( count - 1 ) 
         }
     }

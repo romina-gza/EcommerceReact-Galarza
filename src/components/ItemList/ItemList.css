@@ -1,0 +1,18 @@
+.ItemL {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 90%;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+.ItemL h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.33rem;
+}
+.Load {
+    font-size: 2.5rem;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+}

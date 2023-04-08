@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom"
-import "./Item.css"
-const Item = ({id, name, precio, img, stock}) => {
+import ItemCount from "../ItemCount/ItemCount"
 
+const ItemDetail = ({id, img, name, precio, stock}) => {
     return (
         <article className="ItemCard">
             
@@ -11,15 +10,15 @@ const Item = ({id, name, precio, img, stock}) => {
 
             <section className="ItemCardBody">
                 <h2>{name}</h2>
+                <p>$ {precio}</p>
                 <p>Stock Disponible: {stock}</p>
             </section>
+
             <section className="ItemFooter">
-                <Link to={ `/detail/${id}` }>
-                    <button className="BtnDetalle">Ver detalles</button>
-                </Link>
+            <ItemCount stock={stock} initial={1} onAdd={ (count)=> console.log("se agregregó ", count) }/> 
             </section>
 
         </article>
     )
 }
-export default Item
+export default ItemDetail

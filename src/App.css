@@ -30,12 +30,14 @@ nav {
   align-items: center;
 }
 
-nav h3 {
+nav .Logo {
   font-family:'Quicksand', sans-serif;
   font-size: 2.45rem;
+  font-weight: 700;
   padding: 0;
   margin: 0;
   color: rgba(240, 228, 210, 1);
+  text-decoration: none;
 }
 
 .divCart {
@@ -50,7 +52,7 @@ nav h3 {
   justify-content: space-evenly;
 }
 
-.divButtons button {
+.divButtons .Sites {
   background-color: #ffffff00;
   border: none;
   margin: 1rem;
@@ -59,15 +61,26 @@ nav h3 {
   font-size: 1.20rem;
   text-transform: uppercase;
   color: floralwhite;
-
+  text-decoration: none;
+  border: 3px solid rgba(255, 255, 255, 0);
 }
 
-.divButtons button:hover {
-    border-bottom: 3px solid rgba(255, 255, 255, 0.34);
+.divButtons .Sites:hover {
+  border-bottom: 3px solid rgba(255, 255, 255, 0.34);
+  /* padding-bottom: 0.27rem; */
 }
 
-.divButtons button:active {
+.divButtons .SitesActive {
   border-bottom: 3px solid rgba(240, 228, 210, 1);
+  background-color: #ffffff00;
+/*   border: none; */
+  margin: 1rem;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif; 
+  font-size: 1.20rem;
+  text-transform: uppercase;
+  color: floralwhite;
+  text-decoration: none;
 }
 
 .iconCart {
@@ -78,17 +91,5 @@ nav h3 {
   cursor: pointer;
 }
 
-.itemListContainer {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
-.itemListContainer h1 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2rem;
-  padding: 2rem auto;
-}
 

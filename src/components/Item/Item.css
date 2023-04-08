@@ -1,0 +1,21 @@
+.ItemCard {
+    border: 0.5px solid #f0e4d2;
+    padding: 2rem 1.5rem;
+    max-width: 20rem;
+    /* max-height: 30rem; */
+}
+
+.ItemCardHead {
+    width: 20rem;
+    height: 20rem; 
+}
+
+.ItemCardHead img {
+    width: 100%;
+}
+
+.ItemCardBody h2, p{
+    font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: capitalize;
+}

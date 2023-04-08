@@ -1,0 +1,13 @@
+.itemListContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.itemListContainer h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    padding: 2rem auto;
+}
