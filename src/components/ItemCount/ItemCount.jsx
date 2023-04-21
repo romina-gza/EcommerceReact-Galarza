@@ -1,18 +1,11 @@
-import { useState } from "react"
+import { useCount } from "../../hooks/useCount"
 import './ItemCount.css'
-function ItemCount( { stock, initial, onAdd } ) {
-    const [count, setCount] = useState(initial)
-    function btnAdd() {
-        if (count < stock){
-            setCount( count + 1 )
-        }
-    }
-    function btnLess() {
-        if (count > 1) {
-            setCount( count - 1 ) 
-        }
-    }
 
+
+function ItemCount( { stock, initial, onAdd } ) {
+
+    const {count, btnAdd, btnLess} = useCount(stock, 1, onAdd)
+    
     return (
         <div className="divCounter">
             <div className="counterOfControls">

@@ -15,7 +15,25 @@
 }
 
 .ItemCardBody h2, p{
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-family: 'Montserrat', sans-serif;
     text-transform: capitalize;
+}
+
+/* .ItemFooter {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+ */
+.ItemFooter .BtnDetalle {
+    border: none;
+    background: none;
+    text-decoration-line: underline;
+    cursor: pointer;
+    padding: 0;
+    color: #cd813e;
+    font-weight: 600;
+    font-family: 'Quicksand';
+    font-size: 1.5rem;
 }

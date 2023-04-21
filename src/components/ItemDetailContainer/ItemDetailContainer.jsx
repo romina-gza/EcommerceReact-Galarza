@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { getProductById } from "../../utils/mockFetch"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import { useParams } from "react-router-dom"
-//import "./ItemDetailContainer.css"
+import "./ItemDetailContainer.css"
 
 const ItemDetailContainer = () => {
     const [producto, setProducto] = useState(null)
@@ -16,7 +16,7 @@ const ItemDetailContainer = () => {
     },[])
     
     return (
-        <div>
+        <div className="ItemDetailCss">
             <ItemDetail {...producto}/>
         </div>
     )

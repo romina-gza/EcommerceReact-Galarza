@@ -1,6 +1,13 @@
+import { useState } from "react"
 import ItemCount from "../ItemCount/ItemCount"
+import { AdditionalButtons } from "../AdditionalButtons/AdditionalButtons"
 
 const ItemDetail = ({id, img, name, precio, stock}) => {
+    const [btns, setBtns] = useState('btn')
+    const onAdd = (count) => {
+        console.log("se agregregó ", count)
+        setBtns('AdditionalsBtns')
+    }
     return (
         <article className="ItemCard">
             
@@ -15,7 +22,12 @@ const ItemDetail = ({id, img, name, precio, stock}) => {
             </section>
 
             <section className="ItemFooter">
-            <ItemCount stock={stock} initial={1} onAdd={ (count)=> console.log("se agregregó ", count) }/> 
+                {
+                    btns === 'btn' ? 
+                    <ItemCount stock={stock} initial={1} onAdd={ onAdd }/> 
+                    :
+                    <AdditionalButtons />
+                }
             </section>
 
         </article>

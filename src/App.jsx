@@ -3,26 +3,29 @@ import './App.css'
 import NavBar from './components/NavBar/NavBar'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
+/* import { ContextApp } from './Context/CartContext' */
 
 function App() {
 
   return (
-    <BrowserRouter>
-    <div className="App">
-      <NavBar />
-        <Routes>
-          <Route path='/' element={ <ItemListContainer greeting={'Bienvenidos'} /> }>            
-          </Route>
-          <Route path='/category/:section' element={ <ItemListContainer greeting={'Bienvenidos'} /> }>            
-          </Route>
-          <Route path='/detail/:idprod' element={ <ItemDetailContainer /> }>
-          </Route>
-          <Route path='*' element={ <Navigate to='/' ></Navigate> }>
-          </Route>
-        </Routes>
-    </div>
-  
-    </BrowserRouter>
+    
+      <BrowserRouter>
+        <div className="App">
+          <NavBar />
+            <Routes>
+              <Route path='/' element={ <ItemListContainer greeting={'Bienvenidos'} /> }>            
+              </Route>
+              <Route path='/category/:section' element={ <ItemListContainer greeting={'Bienvenidos'} /> }>            
+              </Route>
+              <Route path='/detail/:idprod' element={ <ItemDetailContainer /> }>
+              </Route>
+              <Route path='*' element={ <Navigate to='/' ></Navigate> }>
+              </Route>
+            </Routes>
+        </div>
+      </BrowserRouter>
+    
+
   )
 }
 

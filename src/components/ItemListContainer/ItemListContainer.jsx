@@ -28,7 +28,7 @@ const ItemListContainer = ({greeting}) => {
     return (
         <div className="itemListContainer">
             <h1>{greeting}</h1>
-            <ItemCount stock={10} initial={1} onAdd={ (count)=> console.log("se agregregó ", count) }/> 
+            
             <ItemList items={products}/>
         </div>
     )
