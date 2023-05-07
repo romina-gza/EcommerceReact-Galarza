@@ -4,7 +4,7 @@ import './AdditionalButtons.css'
 export const AdditionalButtons = () => {
     return (
         <article className='AdditionalButtons'>
-            <Link to='/'>
+            <Link to='/cart'>
                 <button className='BtnFirst' onClick={()=> console.log('ir a... carrito')}>
                 Terminar mi compra
                 </button>

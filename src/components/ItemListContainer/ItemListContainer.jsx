@@ -1,35 +1,48 @@
-import ItemCount from "../ItemCount/ItemCount"
 import ItemList from "../ItemList/ItemList"
-import mFetch from "../../utils/mockFetch"
 import "./ItemListContainer.css"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { Loading } from "../Loading/Loading"
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore"
 
 const ItemListContainer = ({greeting}) => {
     const [products, setProducts] = useState([])
-
+    const [loading, setLoading] = useState(true)
     const {section} = useParams()
     
     useEffect(()=>{
             if (section) {
-                mFetch()
-                    .then((resp)=>setProducts(resp.filter(prod => prod.tipo === section)))
-                    .catch((err)=>console.log(err))
-                    .finally(()=>console.log('proceso terminado!')) 
+                const database = getFirestore()
+                const queryCollection = collection( database , 'productos' )
+                const queryFilter = query(queryCollection, where('tipo', '==', section))
+                getDocs(queryFilter)
+                    .then( resp => setProducts(resp.docs.map(producto => ( { id : producto.id, ...producto.data() } ) ) ) )
+                    .catch( err => console.log(err) )
+                    .finally( () => setLoading(false) )
+
             } else {
-                mFetch()
-                    .then((resp)=>setProducts(resp))
-                    .catch((err)=>console.log(err))
-                    .finally(()=>console.log('proceso terminado!'))                
+
+                const database = getFirestore()
+                const queryCollection = collection( database , 'productos' )
+                getDocs(queryCollection)
+                    .then( resp => setProducts(resp.docs.map(producto => ( { id : producto.id, ...producto.data() } ) ) ) )
+                    .catch( err => console.log(err) )
+                    .finally( () => setLoading(false) )
+        
             }
 
     },[section])
 
+
     return (
         <div className="itemListContainer">
             <h1>{greeting}</h1>
-            
-            <ItemList items={products}/>
+            {
+                loading ? 
+                    <Loading></Loading>
+                : 
+                <ItemList items={products}/>
+            }
         </div>
     )
 }

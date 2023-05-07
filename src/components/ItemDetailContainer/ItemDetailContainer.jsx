@@ -1,23 +1,35 @@
 import { useEffect, useState } from "react"
-import { getProductById } from "../../utils/mockFetch"
+import { doc, getDoc, getFirestore } from 'firebase/firestore'
 import ItemDetail from "../ItemDetail/ItemDetail"
 import { useParams } from "react-router-dom"
 import "./ItemDetailContainer.css"
+import { Loading } from "../Loading/Loading"
+
 
 const ItemDetailContainer = () => {
     const [producto, setProducto] = useState(null)
-    const {idprod} = useParams()
-    
-    useEffect( () => {
-        getProductById(idprod)
-            .then(resp => setProducto(resp))
-            .catch(err => console.error(err))
 
+    const [loading, setLoading] = useState(true)
+
+    const {idprod} = useParams()
+
+    useEffect(()=>{
+        const database = getFirestore()
+
+        const query = doc( database , 'productos', idprod )
+        getDoc(query)
+            .then( resp => setProducto( { id : resp.id, ...resp.data() }  ) )
+            .catch( err => console.log(err) )
+            .finally( () => setLoading(false) )
     },[])
-    
     return (
         <div className="ItemDetailCss">
-            <ItemDetail {...producto}/>
+            {
+                loading ?
+                <Loading></Loading>
+                :
+                <ItemDetail {...producto}/>
+            }
         </div>
     )
 }

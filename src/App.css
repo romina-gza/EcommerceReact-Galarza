@@ -67,13 +67,11 @@ nav .Logo {
 
 .divButtons .Sites:hover {
   border-bottom: 3px solid rgba(255, 255, 255, 0.34);
-  /* padding-bottom: 0.27rem; */
 }
 
 .divButtons .SitesActive {
   border-bottom: 3px solid rgba(240, 228, 210, 1);
   background-color: #ffffff00;
-/*   border: none; */
   margin: 1rem;
   cursor: pointer;
   font-family: 'Montserrat', sans-serif; 

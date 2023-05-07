@@ -82,7 +82,7 @@ const productosLista = [
             marca: "piwen",
             precio: 200,
             gramos: 250,
-            descripcion: "Frutos secos incluidos: \\'almendras\\', \\'nueces\\', \\'pasas de uvas\\' y \\'mani\\'.",
+            descripcion: "Frutos secos incluidos: almendras, nueces, pasas de uvas y mani.",
             img: "../assets/img-productos/mix-tropical.jpg",
             tipo: "frutos_secos",
             stock: 9

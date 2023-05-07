@@ -3,13 +3,15 @@ import './App.css'
 import NavBar from './components/NavBar/NavBar'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
-/* import { ContextApp } from './Context/CartContext' */
+import { CartContextProvider } from './Context/CartContext.jsx'
+import Cart from './components/Cart/Cart'
+import Checkout from './components/Checkout/Checkout'
 
 function App() {
 
   return (
-    
-      <BrowserRouter>
+    <BrowserRouter>
+      <CartContextProvider> 
         <div className="App">
           <NavBar />
             <Routes>
@@ -19,12 +21,17 @@ function App() {
               </Route>
               <Route path='/detail/:idprod' element={ <ItemDetailContainer /> }>
               </Route>
+              <Route path='/cart' element={ <Cart /> }>
+              </Route>
+              <Route path='/checkout' element={ <Checkout /> }>
+              </Route>
+
               <Route path='*' element={ <Navigate to='/' ></Navigate> }>
               </Route>
             </Routes>
         </div>
-      </BrowserRouter>
-    
+      </CartContextProvider>
+    </BrowserRouter>
 
   )
 }

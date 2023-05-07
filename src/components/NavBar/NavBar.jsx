@@ -2,7 +2,7 @@ import { NavLink, Link } from "react-router-dom"
 import CartWidget from "../CartWidget/CartWidget"
 
 function NavBar() {
-
+    
     return (
         <nav>
             <Link to='/' className="Logo">PeanutGo!</Link>
@@ -11,6 +11,7 @@ function NavBar() {
                 <NavLink to='/category/harinas' className={({isActive}) => isActive ? 'SitesActive' : 'Sites' } >Harinas</NavLink>
                 <NavLink to='/category/chocolates' className={({isActive}) => isActive ? 'SitesActive' : 'Sites' } >Chocolates</NavLink>
             </div>
+            
             <CartWidget />
         </nav>
     )

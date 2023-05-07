@@ -48,6 +48,8 @@
     cursor: pointer;
     color: rgba(240, 228, 210, 1);
     text-transform: uppercase;
+
+    font-family: 'Montserrat', sans-serif;
 }    
 
 .addToCart .btnAddToCart:active {
