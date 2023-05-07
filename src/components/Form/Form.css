@@ -1,0 +1,24 @@
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0px;
+}
+
+form div {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12.5px;
+    display: flex;
+    flex-direction: column;
+    margin: 12px 0px;
+}
+
+form div input {
+    width: 230px;
+    height: 22px;
+}
+form div span {
+    color: brown;
+}

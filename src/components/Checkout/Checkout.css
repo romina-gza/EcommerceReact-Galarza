@@ -1,0 +1,22 @@
+.CheckoutBox {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto 1fr;
+}
+
+h1 {
+    grid-column: 1 / 13;
+    grid-row: 1 / 2;
+    text-align: center;
+}
+
+.SectionForm {
+    grid-column: 1 / 8;
+    grid-row: 2 / 3;
+}
+
+.ArticleBox {
+    border: 2px solid #cd813e;
+    grid-column: 9 / 13;
+    grid-row: 2 / 3;
+}

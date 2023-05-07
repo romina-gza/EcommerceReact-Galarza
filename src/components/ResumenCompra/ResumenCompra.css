@@ -1,0 +1,27 @@
+
+.ImagenResumenCompra  {
+    width: 10rem;
+}
+
+.ImagenResumenCompra img {
+    width: inherit;
+}
+
+.DescripcionResumenCompra {
+    font-family: 'Montserrat',sans-serif;
+    font-size: 1.1rem;
+}
+
+.DescripcionResumenCompra h3 {
+    text-transform: capitalize;
+}
+
+.DescripcionResumenCompra span:last-of-type {
+    display: block;
+}
+
+article table {
+    width: 100%;
+    /* border: 1px solid #cd813e; */
+    padding: 1rem;
+}

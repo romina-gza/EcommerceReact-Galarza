@@ -1,9 +1,8 @@
 import {useFormik} from 'formik'
 import * as Yup from 'yup'
-import { initializeFirebase } from '../../firebase/config'
 import { useCartContext } from '../../Context/CartContext'
-import { addDoc, collection } from 'firebase/firestore'
-
+import { collection, addDoc, getFirestore } from 'firebase/firestore'
+import './Form.css'
 
 const Form = () => {
     const {cartList, vaciarCart, precioTotal} = useCartContext()
@@ -11,17 +10,17 @@ const Form = () => {
         initialValues: {nombre: '', apellido: '', tel: '', email: '', repeatEmail: ''},
         validationSchema: Yup.object({
             nombre : Yup.string()
-                .required('El campo "nombre" es requerido'),
+                .required('* El campo "nombre" es requerido'),
             apellido : Yup.string()
-                .required('El campo "apellido" es requerido'),
+                .required('* El campo "apellido" es requerido'),
             tel : Yup.number()
-                .required('El campo "telefono/celular" es requerido'),
+                .required('* El campo "telefono/celular" es requerido'),
             email : Yup.string()
-                .required('El campo "correo electrónico" es requerido')
+                .required('* El campo "correo electrónico" es requerido')
                 .oneOf([Yup.ref('repeatEmail')],'Los correos electrónicos no son iguales'),
             repeatEmail : Yup.string()
-                .required('El campo "repetir correo electrónico" es requerido')
-                .oneOf([Yup.ref('email')],'Los correos electrónicos no son iguales'),
+                .required('* El campo "repetir correo electrónico" es requerido')
+                .oneOf([Yup.ref('email')],'* Los correos electrónicos no son iguales'),
 
         }),
         onSubmit: values => {
@@ -33,7 +32,7 @@ const Form = () => {
     // Generar Orden
 
     const BtnGenerarOrden = (e) => {
-        const values = formik.values.length; // Obtiene valores del formulario
+        const values = formik.values; // Obtiene valores del formulario
         console.log('este es VALUES ->',values )
 
         formik.handleSubmit(); // Llama a la función onSubmit de formik
@@ -43,6 +42,8 @@ const Form = () => {
             console.log('errores')
             formik.handleSubmit()
             e.preventDefault()
+            e.stopPropagation()
+        } else {
             
         }
         console.log('el resto del codigo', values)
@@ -54,7 +55,7 @@ const Form = () => {
         };
         console.log(orden)
 
-        const database = initializeFirebase()
+        const database = getFirestore()
         const queryCollection = collection(database, 'orden')
 
         addDoc(queryCollection, orden)
@@ -69,7 +70,7 @@ const Form = () => {
 
 
     return (
-        <section>
+        <section className='SectionForm'>
             <form onSubmit={ BtnGenerarOrden }>
                 <div>
                     <label >Nombre</label>
@@ -81,7 +82,7 @@ const Form = () => {
                         onChange={formik.handleChange}
                         value={formik.values.nombre}
                     ></input>
-                    {formik.errors.nombre}
+                    {<span> {formik.errors.nombre} </span> }
                 </div>
                 <div>
                     <label >Apellido</label>
@@ -93,7 +94,7 @@ const Form = () => {
                         onChange={formik.handleChange}
                         value={formik.values.apellido}
                     ></input>
-                        {formik.errors.apellido}
+                        { <span>{formik.errors.apellido}</span> }
                 </div>
                 <div>
                     <label >Teléfono Celular</label>
@@ -105,7 +106,7 @@ const Form = () => {
                         onChange={formik.handleChange}
                         value={formik.values.tel}>
                     </input>
-                        {formik.errors.tel}
+                        { <span>{formik.errors.tel}</span> }
                 </div>
                 <div>
                     <label >Correo electrónico</label>
@@ -117,7 +118,7 @@ const Form = () => {
                         onChange={formik.handleChange}
                         value={formik.values.email}>
                     </input>
-                        {formik.errors.email}
+                        { <span>{formik.errors.email}</span> }
                 </div>
                 <div>
                     <label >Repetir correo electrónico</label>
@@ -129,7 +130,7 @@ const Form = () => {
                         onChange={formik.handleChange}
                         value={formik.values.repeatEmail}>
                     </input>
-                        {formik.errors.repeatEmail}
+                        { <span>{formik.errors.repeatEmail}</span> }
                 </div>
                 <input type="submit" value="Generar mi orden" id="submit"/>
             </form>
