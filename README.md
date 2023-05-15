@@ -9,7 +9,6 @@ BETA: Aqui está la URL de [Mi proyecto PeanutGo! en Netlify](https://peanutgo.n
   - [Links](#links)
 - [Mi proceso](#mi-proceso)
   - [Construido con...](#construido-con)
-  - [Useful resources](#useful-resources)
 
 
 ## Descripción general
