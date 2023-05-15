@@ -7,6 +7,7 @@ export const useCartContext = () => useContext(CartContext)
 export const CartContextProvider = ( {children} ) => {
     
     const [cartList, setCartList] = useState( [ ] )
+    const [ordenId, setOrdenId] = useState(null)
     // Functions
     const agregadoAlCart = (newProduct) => {
         const metFindIndex = cartList.findIndex( prod => prod.id === newProduct.id) // Si es igual devuelve el id, de lo contrario --> -1
@@ -65,6 +66,8 @@ export const CartContextProvider = ( {children} ) => {
         <CartContext.Provider value={{
             // Estados
             cartList,
+            ordenId,
+            setOrdenId,
             // Functions
             agregadoAlCart,
             vaciarCart,

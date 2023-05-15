@@ -22,6 +22,21 @@
 
 article table {
     width: 100%;
-    /* border: 1px solid #cd813e; */
     padding: 1rem;
+    border-spacing: inherit;
+}
+
+th {
+    border-bottom: 2px solid;
+    border-spacing: inherit;
+}
+
+div h2,h3, p {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+div p {
+    font-family: 'Quicksand', sans-serif;
 }

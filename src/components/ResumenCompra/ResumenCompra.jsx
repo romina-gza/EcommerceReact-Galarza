@@ -7,11 +7,12 @@ const ResumenCompra = () => {
 
     return(
         <article className="ArticleBox">
+            <h1>Finalizar Compra</h1>
             <table>
                 <thead>
                     <tr>
-                        <th></th>
-                        <th>Resumen de compra</th>
+                        <th>Img</th>
+                        <th>Descripción</th>
                     </tr>
                 </thead>
                 
@@ -33,7 +34,8 @@ const ResumenCompra = () => {
 
                 <tfoot>
                     <tr>
-                        <td>Subtotal $9999</td>
+                        <td>Subtotal:</td>
+                        <td>${precioTotal()}</td>
                     </tr>
                 </tfoot>
             </table>

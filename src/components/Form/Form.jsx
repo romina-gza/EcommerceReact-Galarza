@@ -5,11 +5,14 @@ import { collection, addDoc, getFirestore } from 'firebase/firestore'
 import './Form.css'
 
 const Form = () => {
-    const {cartList, vaciarCart, precioTotal} = useCartContext()
+
+    const {cartList, vaciarCart, precioTotal, setOrdenId} = useCartContext()
     const formik = useFormik({
         initialValues: {nombre: '', apellido: '', tel: '', email: '', repeatEmail: ''},
         validationSchema: Yup.object({
             nombre : Yup.string()
+                .min(1, 'Demasiado corto!')
+                .max(30, 'Demasiado largo!')
                 .required('* El campo "nombre" es requerido'),
             apellido : Yup.string()
                 .required('* El campo "apellido" es requerido'),
@@ -24,7 +27,6 @@ const Form = () => {
 
         }),
         onSubmit: values => {
-            console.log('este es el valor onSubmit',values)
             return values
         }
     })
@@ -32,19 +34,17 @@ const Form = () => {
     // Generar Orden
 
     const BtnGenerarOrden = (e) => {
+        e.preventDefault()
         const values = formik.values; // Obtiene valores del formulario
         console.log('este es VALUES ->',values )
 
         formik.handleSubmit(); // Llama a la función onSubmit de formik
     
-        if ( Object.keys(formik.values).length === 0  || formik.errors ) {
-            // Maneja el error 
-            console.log('errores')
-            formik.handleSubmit()
-            e.preventDefault()
-            e.stopPropagation()
-        } else {
-            
+        const isValid = formik.isValid; // Obtener el estado de validación de Formik
+
+        if (!isValid) {
+            console.log('Hay errores en el formulario');
+            return formik.errors; // Devolver formik.errors si el formulario no es válido
         }
         console.log('el resto del codigo', values)
 
@@ -52,22 +52,19 @@ const Form = () => {
             buyer: values, // Asignar los valores del formulario a la propiedad buyer
             items: cartList.map(({ id, nombre, precio }) => ({ id, nombre, precio })),
             total: precioTotal()
-        };
+        }
         console.log(orden)
 
         const database = getFirestore()
         const queryCollection = collection(database, 'orden')
 
         addDoc(queryCollection, orden)
-            .then( resp => console.log(resp.id) )
+            .then( resp => setOrdenId(resp.id) )
             .catch( err => console.log(err))
-            .finally( () => { 
-                console.log('terminó la promesa')
-                vaciarCart()} )
+            .finally( () => { vaciarCart() } )
         
         console.log('Generando orden: ',orden)
     }
-
 
     return (
         <section className='SectionForm'>

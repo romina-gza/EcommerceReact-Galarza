@@ -8,6 +8,7 @@ h1 {
     grid-column: 1 / 13;
     grid-row: 1 / 2;
     text-align: center;
+    font-family: 'Monteserrat', sans-serif;
 }
 
 .SectionForm {
@@ -17,6 +18,6 @@ h1 {
 
 .ArticleBox {
     border: 2px solid #cd813e;
-    grid-column: 9 / 13;
+    grid-column: 8 / 12;
     grid-row: 2 / 3;
 }

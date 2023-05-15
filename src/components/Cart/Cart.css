@@ -11,7 +11,7 @@
     width: 25rem;
 }
 
-.BtnGoShop {
+.BtnGoShop , .BtnsCart button {
     font-size: 1rem;
     width: 15rem;
     background-color: #000000;
@@ -27,17 +27,13 @@
     margin-top: 3rem;
 }
 
-.BtnGoShop:active {
+.BtnGoShop:active , .BtnsCart button:active{
     background-color: #000000d3;
     border: 1.2px solid #000000d3;
     color: white;
 }    
 
-li {
-    list-style: none;
-}
-
-.ItemCartCard {
+/* .ItemCartCard {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -45,14 +41,73 @@ li {
     font-family: 'Montserrat', sans-serif;
     text-transform: capitalize;
     font-size: 1.3rem;
+} */
+
+.TrashSVG .IconTrashSVG{
+    width: 2rem;
+    cursor: pointer;
 }
 
-.ItemCartCard img {
+.CartContainer h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: large;
+    text-align: center;
+}
+
+/* code desde mi stackblitz */
+.TableBox {
+    margin-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+table {
+    border-spacing: 0px;
+    font-family: 'Montserrat',sans-serif;
+}
+thead tr th {
+    padding: 4px 12px;
+    text-align: start;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.35rem;
+    border-bottom: 1px solid rgba(205, 129, 62, 1);
+}
+
+tbody tr td:first-of-type {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 500px;
+    padding: 5px 0;
+}
+
+tbody tr td:first-of-type div span {
+    display: block;
+}
+tbody tr td img {
     width: 10rem;
+} 
+tbody tr td ~ td,
+tfoot tr td ~ td {
+    padding: 2rem;
+    font-size: 1.3rem;
+}
+tfoot tr {
+    width: 100%;
+    border-top: 1px solid #333;
+}
+tfoot tr:first-of-type td {
+    border-top: 1px solid rgba(205, 129, 62, 1);
+    font-size: 1.35rem;
 }
 
 .TextItemCartCard {
     width: 25rem;
+    padding-left: 10px;
+    text-transform: capitalize;
 }
 
 .TextItemCartCard h3 {
@@ -65,7 +120,9 @@ li {
     color: gray;
 }
 
-.TrashSVG .IconTrashSVG{
-    width: 2rem;
-    cursor: pointer;
+.BtnsCart {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 90%;
 }
