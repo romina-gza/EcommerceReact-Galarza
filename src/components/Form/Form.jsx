@@ -36,34 +36,30 @@ const Form = () => {
     const BtnGenerarOrden = (e) => {
         e.preventDefault()
         const values = formik.values; // Obtiene valores del formulario
-        console.log('este es VALUES ->',values )
 
         formik.handleSubmit(); // Llama a la función onSubmit de formik
     
         const isValid = formik.isValid; // Obtener el estado de validación de Formik
 
         if (!isValid) {
-            console.log('Hay errores en el formulario');
             return formik.errors; // Devolver formik.errors si el formulario no es válido
         }
-        console.log('el resto del codigo', values)
 
         const orden = {
             buyer: values, // Asignar los valores del formulario a la propiedad buyer
             items: cartList.map(({ id, nombre, precio }) => ({ id, nombre, precio })),
             total: precioTotal()
         }
-        console.log(orden)
+
 
         const database = getFirestore()
         const queryCollection = collection(database, 'orden')
 
         addDoc(queryCollection, orden)
             .then( resp => setOrdenId(resp.id) )
-            .catch( err => console.log(err))
+            .catch( err => err)
             .finally( () => { vaciarCart() } )
-        
-        console.log('Generando orden: ',orden)
+
     }
 
     return (

@@ -3,7 +3,7 @@ import './ResumenCompra.css'
 
 const ResumenCompra = () => {
     const {cartList, vaciarCart, precioTotal} = useCartContext()
-    console.log(cartList)
+
 
     return(
         <article className="ArticleBox">

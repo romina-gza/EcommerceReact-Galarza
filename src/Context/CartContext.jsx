@@ -11,7 +11,7 @@ export const CartContextProvider = ( {children} ) => {
     // Functions
     const agregadoAlCart = (newProduct) => {
         const metFindIndex = cartList.findIndex( prod => prod.id === newProduct.id) // Si es igual devuelve el id, de lo contrario --> -1
-        console.log(metFindIndex)
+
         if (metFindIndex === -1 ){
             setCartList([
                 ...cartList,
@@ -49,19 +49,16 @@ export const CartContextProvider = ( {children} ) => {
 
         return CantidadTtl
     }
-    console.log('Cantidad total!--->',cantidadTotal())
-
-
 
     //precio total.
     let precioTotal = () => {
         let PrecioTotal = cartList.reduce((acumulador, productoAgregado)=> {
             return acumulador += (productoAgregado.precio * productoAgregado.count)
         },0)
-        console.log(PrecioTotal)
+
         return PrecioTotal
     }
-    console.log(precioTotal())
+
     return (
         <CartContext.Provider value={{
             // Estados

@@ -17,7 +17,7 @@ const ItemListContainer = ({greeting}) => {
                 const queryFilter = query(queryCollection, where('tipo', '==', section))
                 getDocs(queryFilter)
                     .then( resp => setProducts(resp.docs.map(producto => ( { id : producto.id, ...producto.data() } ) ) ) )
-                    .catch( err => console.log(err) )
+                    .catch( err => err )
                     .finally( () => setLoading(false) )
 
             } else {
@@ -26,7 +26,7 @@ const ItemListContainer = ({greeting}) => {
                 const queryCollection = collection( database , 'productos' )
                 getDocs(queryCollection)
                     .then( resp => setProducts(resp.docs.map(producto => ( { id : producto.id, ...producto.data() } ) ) ) )
-                    .catch( err => console.log(err) )
+                    .catch( err => err )
                     .finally( () => setLoading(false) )
         
             }

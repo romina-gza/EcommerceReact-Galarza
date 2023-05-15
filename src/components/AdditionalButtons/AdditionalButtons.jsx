@@ -5,12 +5,12 @@ export const AdditionalButtons = () => {
     return (
         <article className='AdditionalButtons'>
             <Link to='/cart'>
-                <button className='BtnFirst' onClick={()=> console.log('ir a... carrito')}>
+                <button className='BtnFirst'>
                 Terminar mi compra
                 </button>
             </Link>
             <Link to='/'>
-                <button onClick={()=> console.log('ir a... home')}>
+                <button>
                     Seguir Comprando
                 </button>
             </Link>

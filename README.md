@@ -15,7 +15,7 @@ BETA: Aqui está la URL de [Mi proyecto PeanutGo! en Netlify](https://peanutgo.n
 ## Descripción general
 
 ### Mi Screenshot
-![](./CapturaProyectoReact.PNG)
+![](./public/CapturaProyectoReact.png)
 
 ### Construido con
 - React + Vite 
