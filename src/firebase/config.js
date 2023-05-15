@@ -16,12 +16,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration -  import.meta en lugar de process en React + Vite en lugar de process
 const firebaseConfig = {
-  apiKey: import.meta.env.REACT_APP_apiKey,
-  authDomain: import.meta.env.REACT_APP_authDomain,
-  projectId: import.meta.env.REACT_APP_projectId,
-  storageBucket: import.meta.env.REACT_APP_storageBucket,
-  messagingSenderId: import.meta.env.REACT_APP_messagingSenderId,
-  appId: import.meta.env.REACT_APP_appId
+  apiKey: import.meta.env.VITE_APP_apiKey,
+  authDomain: import.meta.env.VITE_APP_authDomain,
+  projectId: import.meta.env.VITE_APP_projectId,
+  storageBucket: import.meta.env.VITE_APP_storageBucket,
+  messagingSenderId: import.meta.env.VITE_APP_messagingSenderId,
+  appId: import.meta.env.VITE_APP_appId
 };
 
 
